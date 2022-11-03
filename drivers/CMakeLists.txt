@@ -8,6 +8,7 @@ add_subdirectory(pcie)
 add_subdirectory(disk)
 add_subdirectory(usb)
 add_subdirectory(usb_c)
+add_subdirectory(techsafe_utilities)
 
 add_subdirectory_ifdef(CONFIG_ADC adc)
 add_subdirectory_ifdef(CONFIG_CLOCK_CONTROL clock_control)

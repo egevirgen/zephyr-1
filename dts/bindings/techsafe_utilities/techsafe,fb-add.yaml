@@ -1,0 +1,23 @@
+description: Integer Add function block definition
+
+compatible: "techsafe,fb-add"
+
+include: base.yaml
+
+properties:
+  fb-name:
+    type: string
+    description: Name of the function block
+    required: true
+  input1:
+    type: phandle
+    description: Input 1
+    required: true
+  input2:
+    type: phandle
+    description: Input 2
+    required: true
+  output:
+    type: phandle
+    description: Output
+    required: true

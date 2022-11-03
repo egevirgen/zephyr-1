@@ -63,3 +63,5 @@ TAGS
 tags
 
 .idea
+/CMakeLists.txt.user
+/samples/hello_world/CMakeLists.txt.user

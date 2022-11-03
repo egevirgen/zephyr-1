@@ -1,0 +1,15 @@
+description: Integer type port definition
+
+compatible: "techsafe,port-int"
+
+include: base.yaml
+
+properties:
+  port-name:
+    type: string
+    description: Name of the port
+    required: true
+  port-value:
+    type: int
+    description: Port value
+    required: true

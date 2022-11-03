@@ -1,0 +1,24 @@
+# Keyboard scan configuration options
+
+# Copyright (c) 2019 Intel Corporation
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig TECHSAFE_UTILITIES
+	bool "Techsafe Utility Settings"
+	help
+	  Include Techsafe Utility Settings in system config.
+
+if TECHSAFE_UTILITIES
+
+
+module = TECHSAFE_UTILITIES
+module-str = techsafe_utilities
+source "subsys/logging/Kconfig.template.log_config"
+
+config TECHSAFE_UTILITIES_INIT_PRIORITY
+	int "TECHSAFE_UTILITIES init priority"
+	default 50
+	help
+	  TECHSAFE_UTILITIES initialization priority.
+
+endif # TECHSAFE_UTILITIES

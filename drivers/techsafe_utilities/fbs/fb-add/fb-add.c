@@ -2,9 +2,8 @@
 #include <zephyr/device.h>
 #include <zephyr/techsafe_utilities/ports/port-int/port-int.h>
 
-#include <zephyr/kernel.h>
-//#include <zephyr/logging/log.h>
-//LOG_MODULE_REGISTER(fb_add, CONFIG_TECHSAFE_UTILITIES_LOG_LEVEL);
+#include <zephyr/logging/log.h>
+LOG_MODULE_REGISTER(fb_add, CONFIG_TECHSAFE_UTILITIES_LOG_LEVEL);
 
 #define DT_DRV_COMPAT techsafe_fb_add
 
@@ -34,8 +33,7 @@ static int fb_add_init(const struct device *dev)
     data->output = data->value1 + data->value2;
     port_int_set_value(config->output, data->output);
 
-    printk("FB Name = %s || IN1=%d IN2=%d OUT=%d\n", config->name, data->value1, data->value2, data->output);
-//    LOG_DBG("FB Name = %s || IN1=%d IN2=%d OUT=%d", config->name, data->value1, data->value2, data->output);
+    LOG_DBG("FB Name = %s || IN1=%d IN2=%d OUT=%d", config->name, data->value1, data->value2, data->output);
 
     return 0;
 }

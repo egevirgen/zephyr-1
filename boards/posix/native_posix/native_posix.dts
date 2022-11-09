@@ -206,4 +206,33 @@
 		sample-point = <875>;
 		bus-speed = <125000>;
 	};
+
+	porta: port1 {
+		compatible = "techsafe,port-int";
+		port-name = "port 1";
+		port-value = <11>;
+		status = "okay";
+	};
+
+	portb: port2 {
+		compatible = "techsafe,port-int";
+		port-name = "port 2";
+		port-value = <33>;
+		status = "okay";
+	};
+
+	portc: port3 {
+		compatible = "techsafe,port-int";
+		port-name = "port 3";
+		port-value = <1>;
+		status = "okay";
+	};
+
+	add1 {
+		compatible = "techsafe,fb-add";
+		fb-name = "add 1";
+		input1 = <&porta>;
+		input2 = <&portb>;
+		output = <&portc>;
+	};	
 };

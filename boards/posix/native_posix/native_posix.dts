@@ -207,32 +207,72 @@
 		bus-speed = <125000>;
 	};
 
-	porta: port1 {
-		compatible = "techsafe,port-int";
-		port-name = "port 1";
-		port-value = <11>;
-		status = "okay";
-	};
+	app_1 {
+		ports {
+			port_1 {
+				status = "okay";
+				compatible = "techsafe,port-cbor";
+				initial-value = [A2 61 74 01 61 76 0A];
+			};
+			port_2 {
+				status = "okay";
+				compatible = "techsafe,port-cbor";
+				initial-value = [A0];
+			};
+			port_3 {
+				status = "okay";
+				compatible = "techsafe,port-cbor";
+				initial-value = [A0];
+			};
+			port_4 {
+				status = "okay";
+				compatible = "techsafe,port-cbor";
+				initial-value = [A0];
+			};
+			port_5 {
+				status = "okay";
+				compatible = "techsafe,port-cbor";
+				initial-value = [A0];
+			};
+			port_6 {
+				status = "okay";
+				compatible = "techsafe,port-cbor";
+				initial-value = [A0];
+			};
+		};
 
-	portb: port2 {
-		compatible = "techsafe,port-int";
-		port-name = "port 2";
-		port-value = <33>;
-		status = "okay";
-	};
+		functions {
+			function_1 {
+				status = "okay";
+				compatible = "techsafe,fb-add";
+				fb-name = "ADD_1";
+				input1 = < &{/app_1/ports/port_1} >;
+				input2 = < &{/app_1/ports/port_2} >;
+				output = < &{/app_1/ports/port_3} >;
+			};
+			function_2 {
+				status = "okay";
+				compatible = "techsafe,fb-add";
+				fb-name = "ADD_2";
+				input1 = < &{/app_1/ports/port_4} >;
+				input2 = < &{/app_1/ports/port_5} >;
+				output = < &{/app_1/ports/port_6} >;
+			};
+		};
 
-	portc: port3 {
-		compatible = "techsafe,port-int";
-		port-name = "port 3";
-		port-value = <1>;
-		status = "okay";
+		connections {
+			connection_1 {
+				source = < &{/app_1/ports/port_3} >;
+				destination = < &{/app_1/ports/port_4} >;
+			};
+			connection_2 {
+				source = < &{/app_1/ports/port_3} >;
+				destination = < &{/app_1/ports/port_5} >;
+			};
+			connection_3 {
+				source = < &{/app_1/ports/port_6} >;
+				destination = < &{/app_1/ports/port_2} >;
+			};
+		};
 	};
-
-	add1 {
-		compatible = "techsafe,fb-add";
-		fb-name = "add 1";
-		input1 = <&porta>;
-		input2 = <&portb>;
-		output = <&portc>;
-	};	
 };

@@ -1,0 +1,11 @@
+description: Integer type port definition
+
+compatible: "techsafe,port-cbor"
+
+include: base.yaml
+
+properties:
+  initial-value:
+    type: uint8-array
+    description: CBOR value
+    required: false

@@ -1,23 +1,19 @@
-description: Integer Add function block definition
-
+description: Add function block definition
 compatible: "techsafe,fb-add"
-
 include: base.yaml
+on-bus: application
+bus: function
 
 properties:
-  fb-name:
-    type: string
-    description: Name of the function block
-    required: true
   input1:
     type: phandle
     description: Input 1
-    required: true
+    required: false
   input2:
     type: phandle
     description: Input 2
-    required: true
+    required: false
   output:
     type: phandle
     description: Output
-    required: true
+    required: false

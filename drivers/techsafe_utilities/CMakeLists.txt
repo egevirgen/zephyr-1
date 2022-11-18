@@ -2,3 +2,4 @@
 
 add_subdirectory(ports)
 add_subdirectory(fbs)
+add_subdirectory(applications)

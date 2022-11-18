@@ -1,0 +1,60 @@
+/ {
+	application_1 {
+		status = "okay";
+		compatible = "techsafe,application";
+
+		functions {
+			function_1 {
+				status = "okay";
+				compatible = "techsafe,fb-add";
+
+				in_ports {
+					in_1 {
+						status = "okay";
+						compatible = "techsafe,port-cbor";
+						initial-value = [A2 61 74 01 61 76 0A];
+					};
+					in_2 {
+						status = "okay";
+						compatible = "techsafe,port-cbor";
+						initial-value = [A0];
+					};
+				};
+
+				out_ports {
+					out {
+						status = "okay";
+						compatible = "techsafe,port-cbor";
+						initial-value = [A0];
+					};
+				};
+			};
+
+			function_2 {
+				status = "okay";
+				compatible = "techsafe,fb-add";
+
+				in_ports {
+					in_1 {
+						status = "okay";
+						compatible = "techsafe,port-cbor";
+						initial-value = [A0];
+					};
+					in_2 {
+						status = "okay";
+						compatible = "techsafe,port-cbor";
+						initial-value = [A0];
+					};
+				};
+
+				out_ports {
+					out {
+						status = "okay";
+						compatible = "techsafe,port-cbor";
+						initial-value = [A0];
+					};
+				};
+			};
+		};
+	};
+};

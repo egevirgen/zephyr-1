@@ -1,0 +1,6 @@
+description: Application bus
+compatible: "techsafe,application"
+include: base.yaml
+bus: application
+
+

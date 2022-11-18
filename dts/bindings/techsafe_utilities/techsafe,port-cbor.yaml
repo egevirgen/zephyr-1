@@ -1,8 +1,7 @@
-description: Integer type port definition
-
+description: CBOR type port definition
 compatible: "techsafe,port-cbor"
-
 include: base.yaml
+on-bus: function
 
 properties:
   initial-value:

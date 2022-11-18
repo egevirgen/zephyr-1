@@ -11,6 +11,7 @@ LOG_MODULE_REGISTER(port_cbor, CONFIG_TECHSAFE_UTILITIES_LOG_LEVEL);
 struct port_cbor_config {
     const unsigned char* initial_value;
     unsigned int initial_value_len;
+    const struct device *function;
 };
 
 struct port_cbor_data {
@@ -24,7 +25,7 @@ static int port_cbor_init(const struct device *dev)
 
 //    data->value = config->initial_value;
 
-    LOG_DBG("ENC CBOR = %d\n", config->initial_value_len);
+    LOG_DBG("ENC CBOR = %d, func: %s", config->initial_value_len, config->function->name);
 
     return 0;
 }
@@ -58,6 +59,7 @@ static int port_cbor_init(const struct device *dev)
     static const struct port_cbor_config port_cbor_config_##index = {	       \
         .initial_value = initial_value_##index			       \
         , .initial_value_len = DT_PROP_LEN(DT_INST(index, DT_DRV_COMPAT), initial_value) \
+        , .function = DEVICE_DT_GET(DT_BUS(DT_INST(index, DT_DRV_COMPAT))) \
     }; \
     static struct port_cbor_data port_cbor_data_##index; \
     DEVICE_DT_INST_DEFINE(index, port_cbor_init, NULL,			       \
